@@ -101,18 +101,18 @@ class AppThemes {
       GameThemeExtension(
         //Tile colors for different values
         tileColors: const {
-          0: Color(0xFF808080), // black
-          2: Color(0xFF1C1C1C), // very dark gray
-          4: Color(0xFF333333), // dark gray
-          8: Color(0xFF4F4F4F), // dim gray
-          16: Color(0xFF666666), // medium dark gray
-          32: Color(0xFF7F7F7F), // medium gray
-          64: Color(0xFF999999), // medium-light gray
-          128: Color(0xFFB3B3B3), // light gray
-          256: Color(0xFFCCCCCC), // lighter gray
-          512: Color(0xFFE0E0E0), // very light gray
-          1024: Color(0xFFF0F0F0), // almost white
-          2048: Color(0xFFFFFFFF), // pure white
+          0: Color(0xFF2B2B2B),
+          2: Color(0xFFFF6B6B),
+          4: Color(0xFFFFA94D),
+          8: Color(0xFFFFD43B),
+          16: Color(0xFF51CF66),
+          32: Color(0xFF38D9A9),
+          64: Color(0xFF4DABF7),
+          128: Color(0xFF5C7CFA),
+          256: Color(0xFF845EF7),
+          512: Color(0xFFDA77F2),
+          1024: Color(0xFFFF66CC),
+          2048: Color(0xFFFFC107),
         },
         defaultTileColor: const Color(0xFF808080),
 
@@ -209,18 +209,18 @@ class AppThemes {
       GameThemeExtension(
         //Tile colors for different values
         tileColors: const {
-          0: Color(0xFF808080), // black
-          2: Color(0xFF1C1C1C), // very dark gray
-          4: Color(0xFF333333), // dark gray
-          8: Color(0xFF4F4F4F), // dim gray
-          16: Color(0xFF666666), // medium dark gray
-          32: Color(0xFF7F7F7F), // medium gray
-          64: Color(0xFF999999), // medium-light gray
-          128: Color(0xFFB3B3B3), // light gray
-          256: Color(0xFFCCCCCC), // lighter gray
-          512: Color(0xFFE0E0E0), // very light gray
-          1024: Color(0xFFF0F0F0), // almost white
-          2048: Color(0xFFFFFFFF), // pure white
+          0: Color(0xFF2B2B2B),
+          2: Color(0xFFFF6B6B),
+          4: Color(0xFFFFA94D),
+          8: Color(0xFFFFD43B),
+          16: Color(0xFF51CF66),
+          32: Color(0xFF38D9A9),
+          64: Color(0xFF4DABF7),
+          128: Color(0xFF5C7CFA),
+          256: Color(0xFF845EF7),
+          512: Color(0xFFDA77F2),
+          1024: Color(0xFFFF66CC),
+          2048: Color(0xFFFFC107),
         },
         defaultTileColor: const Color(0xFF808080),
 
@@ -859,46 +859,37 @@ class AppThemes {
       GameThemeExtension(
         // Tile Colors
         tileColors: const {
-          0: Color(0xFF0D1117),
-
-          2: Color(0xFF1B4332),
-          4: Color(0xFF24543D),
-          8: Color(0xFF2D6A4F),
-          16: Color(0xFF40916C),
-          32: Color(0xFF52B788),
-          64: Color(0xFF74C69D),
-
-          128: Color(0xFF95D5B2),
-          256: Color(0xFFB7E4C7),
-
-          512: Color(0xFF58A6FF),
-          1024: Color(0xFF79C0FF),
-
-          2048: Color(0xFF39D353), // BUILD SUCCESS
+          0: Color(0xFF132749),
+          2: Color(0xFF9CDCFE),
+          4: Color(0xFF9DD4CF),
+          8: Color(0xFFA4D4A3),
+          16: Color(0xFF77CACB),
+          32: Color(0xFFDA70D6),
+          64: Color(0xFF179FF1),
+          128: Color(0xFFffc914),
+          256: Color(0xFFFFBC00),
+          512: Color(0xFFFFB256),
+          1024: Color(0xFFFEA984),
+          2048: Color(0xFFFF7858),
         },
 
         // Tile Text Colors
         tileTextColor: const {
           0: Colors.white,
-
-          2: Colors.white,
-          4: Colors.white,
-          8: Colors.white,
-          16: Colors.white,
-          32: Color(0xFF0D1117),
-          64: Color(0xFF0D1117),
-
-          128: Color(0xFF0D1117),
-          256: Color(0xFF0D1117),
-
-          512: Colors.white,
-
-          1024: Color(0xFF0D1117),
-
-          2048: Color(0xFF0D1117),
+          2: Color(0xFF132749),
+          4: Color(0xFF132749),
+          8: Color(0xFF132749),
+          16: Color(0xFF132749),
+          32: Colors.white,
+          64: Colors.white,
+          128: Color(0xFF132749),
+          256: Color(0xFF132749),
+          512: Color(0xFF132749),
+          1024: Color(0xFF132749),
+          2048: Colors.white,
         },
 
-        defaultTileColor: const Color(0xFF161B22),
+        defaultTileColor: const Color(0xFF132749),
 
         // Overlay
         gameOverBackgroundColor: Colors.black.withOpacity(0.85),
