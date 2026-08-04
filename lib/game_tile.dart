@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2048/dotted_text.dart';
 import 'package:flutter_2048/game_theme_extension.dart';
 
 class GameTile extends StatelessWidget {
@@ -23,7 +22,6 @@ class GameTile extends StatelessWidget {
         (tileColor.computeLuminance() > 0.3
             ? Theme.of(context).primaryColorDark
             : Theme.of(context).primaryColorLight);
-    final bool hasDotField = themeExtension?.hasDotField ?? false;
     return Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(8),
@@ -52,22 +50,7 @@ class GameTile extends StatelessWidget {
             child: child,
           ),
           child: value != 0
-              ? hasDotField
-                  ? DottedText(
-                      text: '$value',
-                      key: ValueKey<int>(value + index),
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: value >= 1000
-                            ? 14
-                            : value >= 100
-                                ? 18
-                                : 24,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      dotRadius: value >= 1000 ? 0.6 : value >= 100 ? 0.8 : 1.0,
-                    )
-                  : Text(
+              ? Text(
                       '$value',
                       key: ValueKey<int>(value + index),
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
