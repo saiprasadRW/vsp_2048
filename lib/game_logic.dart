@@ -33,6 +33,13 @@ class _GamePageState extends State<GamePage> {
   int score = 0;
   int highScore = 0;
 
+  void _addScore(int points) {
+    score += points;
+    if (score > highScore) {
+      highScore = score;
+    }
+  }
+
   Point<int>? lastAddedTile;
 
   Future<void> _loadGameState() async {
@@ -151,7 +158,7 @@ class _GamePageState extends State<GamePage> {
       for (int i = 0; i < newRow.length - 1; i++) {
         if (newRow[i] == newRow[i + 1]) {
           newRow[i] *= 2;
-          score += newRow[i]; // Add score
+          _addScore(newRow[i]);
           newRow[i + 1] = 0;
         }
       }
@@ -179,7 +186,7 @@ class _GamePageState extends State<GamePage> {
       for (int i = 0; i < newRow.length - 1; i++) {
         if (newRow[i] == newRow[i + 1]) {
           newRow[i] *= 2;
-          score += newRow[i]; // Add score
+          _addScore(newRow[i]);
           newRow[i + 1] = 0;
         }
       }
@@ -209,7 +216,7 @@ class _GamePageState extends State<GamePage> {
       for (int i = 0; i < col.length - 1; i++) {
         if (col[i] == col[i + 1]) {
           col[i] *= 2;
-          score += col[i]; // Add score
+          _addScore(col[i]);
           col[i + 1] = 0;
         }
       }
@@ -241,7 +248,7 @@ class _GamePageState extends State<GamePage> {
       for (int i = 0; i < col.length - 1; i++) {
         if (col[i] == col[i + 1]) {
           col[i] *= 2;
-          score += col[i]; // Add score
+          _addScore(col[i]);
           col[i + 1] = 0;
         }
       }
