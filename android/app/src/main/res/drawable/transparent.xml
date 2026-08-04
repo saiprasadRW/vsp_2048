@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A fully transparent drawable used as the OS splash icon so the
+     native splash screen is effectively invisible. The Flutter
+     SplashContent widget renders the actual branded splash. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@android:color/transparent" />
+</shape>
