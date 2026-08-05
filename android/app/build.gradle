@@ -47,6 +47,12 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = false
+        }
+    }
 }
 
 dependencies {
