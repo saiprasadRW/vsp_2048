@@ -14,7 +14,8 @@ if (keystorePropertiesFile.exists()) {
 android {
     namespace = "com.vsp.vsp_2048"
     compileSdk = 35
-    ndkVersion = flutter.ndkVersion
+    // NDK 27+ produces 16KB page-aligned .so files required for Android 15 devices
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -50,6 +51,8 @@ android {
 
     packaging {
         jniLibs {
+            // false = keep .so files uncompressed + ELF-aligned for 16KB page size support
+            // This works together with android:extractNativeLibs="false" in the manifest
             useLegacyPackaging = false
         }
     }
