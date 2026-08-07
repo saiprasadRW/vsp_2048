@@ -7,7 +7,9 @@
         <item name="postSplashScreenTheme">@style/NormalTheme</item>
     </style>
 
-    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+    <style name="NormalTheme" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">?android:colorBackground</item>
+        <!-- Opt into edge-to-edge enforced by Android 15 (SDK 35) -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">false</item>
     </style>
 </resources>

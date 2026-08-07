@@ -24,6 +24,7 @@ class GameAppBar extends StatelessWidget implements PreferredSizeWidget {
     final bool hasDotField = themeExtension?.hasDotField ?? false;
 
     final appBar = AppBar(
+      automaticallyImplyLeading: false,
       title: Text(title),
       actions: [
         IconButton(

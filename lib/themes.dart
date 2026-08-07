@@ -284,14 +284,14 @@ class AppThemes {
 
         //Score Card title TextStyle
         headlineSmall: TextStyle(
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 20,
           fontFamily: 'Special Gothic Expanded One',
         ),
 
         //Restart game text, Score value TextStyle
         bodySmall: TextStyle(
-            color: Colors.white,
+            color: Colors.black87,
             fontSize: 16,
             fontFamily: 'Special Gothic Expanded One',
             fontWeight: FontWeight.w600),
