@@ -9,6 +9,7 @@ import 'package:flutter_2048/game_theme_extension.dart';
 import 'package:flutter_2048/game_tile.dart';
 import 'package:flutter_2048/game_won.dart';
 import 'package:flutter_2048/matrix_rain.dart';
+import 'package:flutter_2048/onboarding_page.dart';
 import 'package:flutter_2048/score_card.dart';
 import 'package:flutter_2048/theme_controller.dart';
 import 'package:logger/logger.dart';
@@ -38,6 +39,33 @@ class _GamePageState extends State<GamePage> {
     if (score > highScore) {
       highScore = score;
     }
+  }
+
+  void _showTutorial() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      Navigator.of(context).push(
+        PageRouteBuilder(
+          opaque: true,
+          transitionDuration: const Duration(milliseconds: 400),
+          reverseTransitionDuration: const Duration(milliseconds: 300),
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return OnboardingPage(
+              themeController: widget.themeController,
+            );
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeInOut,
+              ),
+              child: child,
+            );
+          },
+        ),
+      );
+    });
   }
 
   Point<int>? lastAddedTile;
@@ -333,7 +361,54 @@ class _GamePageState extends State<GamePage> {
       ],
     );
 
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) async {
+        if (didPop) return;
+        final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text(
+              'Exit Game?',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            content: Text(
+              'Your progress is saved. Are you sure you want to exit?',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(ctx).pop(false),
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(
+                    fontFamily: Theme.of(context)
+                        .textTheme
+                        .headlineSmall
+                        ?.fontFamily,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(ctx).pop(true),
+                child: Text(
+                  'Exit',
+                  style: TextStyle(
+                    fontFamily: Theme.of(context)
+                        .textTheme
+                        .headlineSmall
+                        ?.fontFamily,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+        if (shouldExit == true && context.mounted) {
+          SystemNavigator.pop();
+        }
+      },
+      child: Scaffold(
       appBar: GameAppBar(
         title: '2048 Game',
         themeController: widget.themeController,
@@ -341,7 +416,9 @@ class _GamePageState extends State<GamePage> {
           setState(() {
             _initBoard();
             gameOver = false;
+            gameWon = false;
           });
+          _showTutorial();
         },
       ),
       body: Focus(
@@ -438,6 +515,7 @@ class _GamePageState extends State<GamePage> {
                           : gameStack,
         ),
       ),
-    );
+    ), // Scaffold
+    ); // PopScope
   }
 }
